@@ -1,15 +1,24 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<template>  
+  <div tabindex="0" class="project">
+    <p class="selected-tool">selected tool is: <span class="selected-name">hand</span></p>
+    <toolbar @itemSelected="itemSelected"/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import toolbar from './components/toolbar.vue'
+import $ from 'jquery';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: {    
+    toolbar
+  },
+  methods:{
+      itemSelected(e){
+        $('p.selected-tool .selected-name').text(e)
+      }
   }
 }
 </script>
